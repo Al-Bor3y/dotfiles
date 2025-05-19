@@ -1,0 +1,75 @@
+{
+	"fixed-center": true,
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+	"reload_style_on_change": true,
+    // Choose the order of the modules
+    "modules-left": ["clock", "network"],
+	"modules-center": ["hyprland/workspaces"],
+    "modules-right": ["pulseaudio", "cpu", "custom/swaync"],
+
+//	"custom/swaync": {
+//		"on-click": "swaync-client --toggle-panel",
+//		"format": "󰍩",
+//		"tooltip-format": "Open Nontification's Panel"
+//
+//	},
+
+	"hyprland/workspaces": {
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+		"sort-by-name": true,
+		"format": "{id}",
+		//         "format-icons": {"default": ""}
+		"persistent-workspaces": {"*": 4}
+	},
+
+	"network": {
+		"interface": "enp1s0",
+		"interval": 1,
+		"format": "󰛳 {bandwidthTotalBytes}",
+		"on-click": "[ $(nmcli networking) == 'enabled' ] && nmcli networking off || nmcli networking on; notify-send \"Network $(nmcli networking)\" --icon=hint",
+		"tooltip-format": "Upload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}"
+	},
+
+	"cpu": {
+
+		"interval": 1,
+		"tooltip": false,
+		"format": "{usage}% "
+
+	},
+
+	"clock": {
+		"timezone": "Africa/Cairo",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": " {:%d/%m/%Y}",
+		"format": " {:%I:%M:%S}",
+		"interval": 1,
+		"calendar": {
+			"mode"          : "month",
+			"mode-mon-col"  : 3,
+			"weeks-pos"     : "right",
+			"on-scroll"     : 1,
+			"format": {
+				"months":     "<span color='#ffead3'></span>",
+				"days":       "<span color='#cdd6f4'><b>{}</b></span>",
+				"weeks":      "<span color='#a6e3a1'><b>W{}</b></span>",
+				"weekdays":   "<span color='#fab387'><b>{}</b></span>",
+				"today":      "<span color='#b4befe'><b>{}</b></span>"
+			}
+		}
+	},
+    
+	"pulseaudio": {
+
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "default": ["", "", " "]
+        }
+	}
+}
+
+// vim: ft=jsonc

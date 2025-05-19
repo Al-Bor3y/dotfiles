@@ -1,0 +1,35 @@
+configuration {
+
+	modi: "window,drun,ssh,combi";
+
+	combi-modi: "window,drun,ssh";
+
+    show-icons: true;
+    icon-theme: "Sweet-Purple";
+	font: "CaskaydiaCove Nerd Font";
+
+	terminal: "alacritty";
+
+    display-drun: "Launch:";
+	
+
+}
+
+//@theme "/usr/share/rofi/themes/rounded-nord-dark.rasi"
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+//@theme "/usr/share/rofi/themes/launchpad.rasi"
+//@theme "/home/Youssef/.config/rofi/themes/launchpad.rasi"
+//@theme "/home/Youssef/.config/rofi/themes/DarkBlue.rasi"
+//@theme "/home/Youssef/.config/rofi/themes/windows11-grid-dark.rasi"
+//@theme "/home/Youssef/.config/rofi/themes/launchpad.rasi"
+//@theme "/home/Youssef/.config/rofi/themes/rounded-purple-dark.rasi"
+//@theme "/home/Youssef/.config/rofi/themes/windows11-grid-dark.rasi"
+//@theme "/home/Youssef/.config/rofi/themes/launchpad.rasi"
+
+//@theme "/home/Youssef/.config/rofi/themes/rounded-green-dark.rasi"
+
+//@theme "/home/Youssef/.config/rofi/themes/catppuccin_mocha_lavender.rasi"
+
+//@theme "/home/Youssef/.config/rofi/themes/launchpad.rasi"
+
+@theme "/home/Youssef/.config/rofi/themes/catppuccin_mocha_lavender.rasi"

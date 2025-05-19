@@ -1,0 +1,109 @@
+@import "colors.css";
+
+* {
+	font-family: FiraCode Nerd Font;
+	font-size: 12px;
+	min-height: 0;
+}
+
+#waybar {
+	background: transparent;
+	color: @lavender;
+	transition-duration: 0.75s;
+}
+
+#window {
+	background-color: @base;
+	border-radius: 1rem 1rem 1rem 1rem;
+	padding: 0rem;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+	margin: 1px 2px;
+
+}
+
+#workspaces {
+	border-radius: 1rem;
+	padding: 0rem;
+	margin: 1px 0px;
+	margin-top: 0.25rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+#workspaces button {
+	color: @lavender;
+	border-radius: 1rem;
+	padding: 0.4rem;
+	transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+	color: @crust;
+	background-color: @lavender;
+	border-radius: 1rem;
+}
+
+#workspaces button.active:hover {
+	background-color: @lavender;
+}
+
+#workspaces button:hover {
+	background-color: @surface0;
+	border-radius: 1rem;
+}
+
+#clock,
+#pulseaudio,
+#cpu,
+#network {
+	padding: 0rem 1rem;
+	margin: 1px 0px;
+	margin-top: 0.25rem;
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+}
+
+tooltip {
+	background-color: @base;
+	border: 1px solid @lavender;
+    border-radius: 1rem;
+	/*  box-shadow: 0 0 2 1px @lavender; */
+}
+
+#custom-swaync,
+#window,
+#workspaces,
+#clock,
+#pulseaudio,
+#cpu,
+#network {
+	background-color: @base;
+    color: @lavender;
+	border: 2px solid @lavender;
+	border-radius: 1rem;
+	box-shadow: 0px 0px 2px 0px @lavender;
+}
+
+#network.disconnected {
+	color: @red;
+}
+
+
+/*#pulseaudio-slider slider {*/
+/*    min-height: 0px;*/
+/*    min-width: 0px;*/
+/*    opacity: 0;*/
+/*    background-image: none;*/
+/*}*/
+/*#pulseaudio-slider trough {*/
+/*    min-height: 10px;*/
+/*    min-width: 80px;*/
+/*    border-radius: 5px;*/
+/*    background-color: black;*/
+/*}*/
+/*#pulseaudio-slider highlight {*/
+/*    min-width: 10px;*/
+/*    border-radius: 5px;*/
+/*    background-color: green;*/
+/*}*/
