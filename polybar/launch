@@ -1,0 +1,38 @@
+#!/bin/bash
+
+kill_bar() {
+	polybar-msg -p $(cat /tmp/$1-bar.pid) cmd quit &> /dev/null
+}
+
+if [[ $2 == "--kill" ]]; then
+
+	kill_bar $1
+
+elif [[ ! -z $1 ]]; then
+
+	polybar --quiet --reload $1 --config=~/.config/polybar/config/$1-bar.ini &
+
+	PID=$!
+
+	echo $PID > /tmp/$1-bar.pid
+
+	disown
+
+else
+
+	no_auto_start=("audio")
+
+	for bar in $(find ~/.config/polybar/config -name "*-*" | awk -F '/' '{print $NF}' | awk -F '-' '{print $1}'); do
+
+		echo $no_auto_start | grep -w -q $bar && continue
+
+		polybar --quiet --reload "$bar" --config=~/.config/polybar/config/"$bar"-bar.ini &
+
+	done
+	
+
+#	polybar --quiet --reload center --config=~/.config/polybar/config/center-bar.ini &
+#	polybar --quiet --reload cpu --config=~/.config/polybar/config/cpu-bar.ini &
+	disown
+
+fi
