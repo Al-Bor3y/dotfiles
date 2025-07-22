@@ -6,15 +6,12 @@ vim.diagnostic.config({
 		header = "",
 		footer = "",
 		scope = "cursor",
-		source = 'always', -- Or 'if_many', 'never'
+		source = 'if_many', -- Or 'if_many', 'never'
 		border = 'rounded', -- Or 'single', 'double', 'shadow'
-		focusable = false,
+		focusable = true,
 	},
 
 	virtual_text = {
-
---		severity = { max = vim.diagnostic.severity.WARN },
-
 		prefix = '●',
 		spacing = 0,
 	},
@@ -24,75 +21,35 @@ vim.diagnostic.config({
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-local servers = {"ruff", "pyright", "lua_ls", "jsonls", "intelephense", "bashls"}
-
+local servers = {"clangd", "ruff", "pyright", "lua_ls", "jsonls", "intelephense", "bashls"}
 local client = require("lspconfig")
 
 local configs = {
-
---	jedi_language_server = {
---
---		capabilities = capabilities,
---
---		settings = {
---
---			jedi = {
---
---				diagnostics = {
---
-----					enable = false
---
---				}
---
---			}
---
---		}
---
---	},
-
 	intelephense = {
-
 		capabilities = capabilities,
-
 		root_dir = client.util.root_pattern(".git", "composer.json", "*.php")
-
 	},
-
 	default = {
-
 		capabilities = default_capabilities
-
 	}
 }
 
 local server_config
 
 for _, server in ipairs(servers) do
-
 	if configs[server] then
-
 		server_config = configs[server]
-
 	else
-
 		server_config = configs[default]
-
 	end
 
 	client[server].setup{ server_config }
-
 end
 
 require('lspsaga').setup{
-
 	ui = {
-
 		border = "rounded",
-
---	    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-
-
+	    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
 	},
 
 	lightbulb = {
@@ -102,8 +59,4 @@ require('lspsaga').setup{
 	breadcrumbs = {
 		delay = 0
 	}
-
 }
-
-
-

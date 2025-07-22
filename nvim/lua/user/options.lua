@@ -1,4 +1,3 @@
---vim.opt.selectmode = "mouse"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.updatetime = 0
@@ -14,9 +13,6 @@ vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.cursorline = false
 vim.opt.encoding = "UTF-8"
-
-vim.g.python3_host_prog = '/usr/bin/python3'
---vim.g.python3_host_prog_timeout = 5000  -- Set timeout to 5000 milliseconds (5 seconds)
 
 vim.opt.termguicolors = true
 vim.opt.mousemoveevent = true

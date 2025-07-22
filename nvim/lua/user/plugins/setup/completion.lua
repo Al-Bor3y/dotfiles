@@ -14,7 +14,7 @@ cmp.setup({
 	},
 
 	performance = {
---		max_view_entries = 10,
+		max_view_entries = 10,
 		debounce = 0, -- default is 60ms
 		throttle = 0, -- default is 30ms
 	},
@@ -49,7 +49,7 @@ cmp.setup({
 
 		{ name = "nerdfont" },
 
-		{ name = "nvim_lsp_signature_help" },
+--		{ name = "nvim_lsp_signature_help" },
 
 		{ name = 'nvim_lua' }
 

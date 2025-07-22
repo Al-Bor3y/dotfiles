@@ -27,37 +27,9 @@ font pango:FiraCode Nerd Font:style=Regular 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-#exec --no-startup-id nm-applet
-
-#exec killall xfce4-panal
-#exec --no-startup-id xfce4-panal
-
-#exec killall picom
-#exec --no-startup-id picom
-
-#exec killall xfce4-power-manager
-#exec --no-startup-id xfce4-power-manager
-
-# Use pactl to adjust volume in PulseAudio.
-#set $refresh_i3status killall -SIGUSR1 i3status
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
 #Hide window title bar
-default_border pixel 0
-default_floating_border pixel 0
-for_window [class="^.*"] border pixel 0
+default_floating_border pixel 1
+for_window [class="^.*"] border pixel 1
 
 #border_radius 5
 
@@ -74,7 +46,7 @@ for_window [class="^.*"] border pixel 0
 # the inner affects spacing around each view
 # the outer affects the spacing around each workspace
 # To reduce or remove outer gaps, outer gaps can be set to a negative value.
-gaps inner 8
+gaps inner 9
 gaps outer -2
 gaps top 32
 gaps bottom -4

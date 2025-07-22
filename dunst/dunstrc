@@ -1,50 +1,33 @@
 [global]
 width = 300
 height = 300
-offset = (6, 38)
-
-#transparency = 30
+offset = (6, 40)
 
 markup = full
 
 progress_bar_corner_radius = 8
 
 gap_size = 5
-
 frame_width = 2
-
 frame_color = "#B4BEFE"
 separator_color = frame
 
 font = FiraCode Nerd Font 10
 
-#icon-path = "/usr/share/icons/candy-icons/apps/scalable/:/usr/share/icons/hicolor/"
-
 icon_theme = "Sweet-Rainbow,hicolor"
-
 enable_recursive_icon_lookup = true
 
 dmenu = "/usr/bin/rofi"
 
-corner_radius = 8
+corner_radius = 16
 
 idle_threshold = 15
 timeout = 5
 
-[urgency_low]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-
-[urgency_normal]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
 
 [urgency_critical]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
 frame_color = "#F38BA8"
-
-[all_notifications]
-action_name = "yes"
 
 # vim: ft=cfg
