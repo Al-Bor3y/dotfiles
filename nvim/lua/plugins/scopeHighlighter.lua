@@ -3,7 +3,4 @@ return {
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
-    opts = {},
-
-	enabled = false
 }

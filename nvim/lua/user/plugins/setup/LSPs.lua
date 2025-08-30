@@ -6,13 +6,13 @@ vim.diagnostic.config({
 		header = "",
 		footer = "",
 		scope = "cursor",
-		source = 'if_many', -- Or 'if_many', 'never'
-		border = 'rounded', -- Or 'single', 'double', 'shadow'
-		focusable = true,
+		source = "if_many", -- Or "if_many", "never"
+		border = "rounded", -- Or "single", "double", "shadow"
+		focusable = false,
 	},
 
 	virtual_text = {
-		prefix = '●',
+		prefix = "●",
 		spacing = 0,
 	},
 
@@ -20,36 +20,46 @@ vim.diagnostic.config({
 
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local servers = {"clangd", "ruff", "pyright", "lua_ls", "jsonls", "intelephense", "bashls"}
-local client = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local servers = { "rust_analyzer", "clangd", "basedpyright", "lua_ls", "jsonls" }
 
-local configs = {
-	intelephense = {
-		capabilities = capabilities,
-		root_dir = client.util.root_pattern(".git", "composer.json", "*.php")
-	},
-	default = {
-		capabilities = default_capabilities
-	}
+local servers_settings = {
+  intelephense = {
+    root_dir = vim.fs.root(0, { ".git", "composer.json", "*.php" }),
+  },
+  basedpyright = {
+    settings = {
+      basedpyright = {
+        analysis = {
+          typeCheckingMode = "basic",
+        },
+      },
+    },
+  },
 }
 
-local server_config
+vim.lsp.config("*", {
+  capabilities = capabilities,
+  on_attach = function(client)
+    vim.notify(client.name .. ": Attached.")
+  end,
+})
 
 for _, server in ipairs(servers) do
-	if configs[server] then
-		server_config = configs[server]
-	else
-		server_config = configs[default]
-	end
-
-	client[server].setup{ server_config }
+  if servers_settings[server] then
+    vim.lsp.config(server, servers_settings[server])
+  end
+  vim.lsp.enable(server)
 end
 
-require('lspsaga').setup{
+require("lspsaga").setup{
 	ui = {
 		border = "rounded",
 	    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+	},
+
+	diagnostic = {
+		extend_relatedInformation = true
 	},
 
 	lightbulb = {

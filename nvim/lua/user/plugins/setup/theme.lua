@@ -1,17 +1,6 @@
 local colorscheme = require("user.theme")
 
---local palette = require(colorscheme .. ".palette")
-
 require(colorscheme).setup{
-
-	flavour = "mocha",
-
---	color_overrides = {
---		mocha = {
---			base = "#11111b",
---		}
---
---	},
 
 	transparent_background = true,
 

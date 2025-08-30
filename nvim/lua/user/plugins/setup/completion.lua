@@ -1,4 +1,5 @@
-local cmp = require'cmp'
+local cmp = require("cmp")
+
 
 cmp.setup({
 
@@ -14,7 +15,7 @@ cmp.setup({
 	},
 
 	performance = {
-		max_view_entries = 10,
+--		max_view_entries = 10,
 		debounce = 0, -- default is 60ms
 		throttle = 0, -- default is 30ms
 	},
@@ -40,21 +41,12 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
-
 		{ name = 'luasnip' },
-
 		{ name = 'buffer' },
-
 		{ name = 'path' },
-
 		{ name = "nerdfont" },
-
---		{ name = "nvim_lsp_signature_help" },
-
-		{ name = 'nvim_lua' }
-
+		{ name = 'nvim_lua' },
 	})
-
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -69,14 +61,13 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
-		{ name = 'path' }
-	}, {
-			{ name = 'cmdline' }
-		}),
+		{ name = 'path' },
+		{ name = 'cmdline' }
+	}),
 	matching = { disallow_symbol_nonprefix_matching = false }
 })
 
 require("nvim-autopairs").setup()
 -- If you want to automatically add `(` after selecting a function or method
-local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
