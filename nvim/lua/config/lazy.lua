@@ -23,48 +23,21 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-
 	ui = {
-		border = "rounded"
+		border = "rounded",
+		title = "Plugins Manager"
 	},
-
 	install = {
-
 		colorscheme = { require("user.theme") },
         -- Automatically install on startup.
-        missing = true,
+        missing = true
     },
-    -- Don't bother me when tweaking plugins.
-    change_detection = { notify = true },
     -- None of my plugins use luarocks so disable this.
-    rocks = {
-        enabled = false,
-    },
-    performance = {
-        rtp = {
-            -- Stuff I don't use.
-            disabled_plugins = {
-                'gzip',
-                'netrwPlugin',
-                'rplugin',
-                'tarPlugin',
-                'tohtml',
-                'tutor',
-                'zipPlugin',
-            },
-        },
-    },
-
+    rocks = { enabled = false },
 	spec = {
-
 		-- import your plugins
-
 		{ import = "plugins" },
-
 	},
-
-  -- Configure any other settings here. See the documentation for more details.
-
   -- automatically check for plugin updates
   checker = { enabled = false },
 })

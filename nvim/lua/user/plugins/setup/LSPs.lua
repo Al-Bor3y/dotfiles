@@ -21,7 +21,7 @@ vim.diagnostic.config({
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "rust_analyzer", "clangd", "basedpyright", "lua_ls", "jsonls" }
+local servers = { "rust_analyzer", "clangd", "basedpyright", "lua_ls", "jsonls", "bashls" }
 
 local servers_settings = {
   intelephense = {
@@ -49,8 +49,9 @@ for _, server in ipairs(servers) do
   if servers_settings[server] then
     vim.lsp.config(server, servers_settings[server])
   end
-  vim.lsp.enable(server)
 end
+
+vim.lsp.enable(servers)
 
 require("lspsaga").setup{
 	ui = {

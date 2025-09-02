@@ -13,9 +13,10 @@ vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.cursorline = false
 vim.opt.encoding = "UTF-8"
-
+vim.opt.winborder = "rounded"
 vim.opt.termguicolors = true
 vim.opt.mousemoveevent = true
+
 vim.g.rustfmt_autosave = true
 
 vim.keymap.set("i", "<leader>/", "<ESC>")
